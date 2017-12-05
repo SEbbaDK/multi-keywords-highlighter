@@ -18,6 +18,10 @@ function loadOptions() {  // eslint-disable-line no-unused-vars
     let subtleHighlighting = localStorage.getItem('subtleHighlighting');
     subtleHighlighting = 'true' === subtleHighlighting && null !== subtleHighlighting;
     document.getElementById('checkboxSubtleHighlighting').checked = subtleHighlighting;
+
+    let invertedHighlighting = localStorage.getItem('invertedHighlighting');
+    invertedHighlighting = 'true' === invertedHighlighting && null !== invertedHighlighting;
+    document.getElementById('checkboxInvertedHighlighting').checked = invertedHighlighting;
   }
 }
 
@@ -26,5 +30,6 @@ function saveOptions() {  // eslint-disable-line no-unused-vars
     localStorage.setItem('keywords', document.getElementById('textareaKeywords').value);
     localStorage.setItem('showOccurrences', document.getElementById('checkboxShowOccurrences').checked);
     localStorage.setItem('subtleHighlighting', document.getElementById('checkboxSubtleHighlighting').checked);
+    localStorage.setItem('invertedHighlighting', document.getElementById('checkboxInvertedHighlighting').checked);
   }
 }

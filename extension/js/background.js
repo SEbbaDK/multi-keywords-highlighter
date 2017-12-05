@@ -21,14 +21,18 @@ browser.runtime.onMessage.addListener(function(request, sender) {
           showOccurrences = 'true' === showOccurrences || null === showOccurrences;
 
 		  let subtleHighlighting = localStorage.getItem('subtleHighlighting');
-		  subtleHighlighting = 'true' === subtleHighlighting;
+		  subtleHighlighting = 'true' === subtleHighlighting && null !== subtleHighlighting;
+
+	      let invertedHighlighting = localStorage.getItem('invertedHighlighting');
+	      invertedHighlighting = 'true' === invertedHighlighting && null !== invertedHighlighting;
 
           browser.tabs.sendMessage(tabs[0].id, {
             'message': 'returnOptions',
             'remove': request.remove,
             'keywords': localStorage.getItem('keywords'),
             'showOccurrences': showOccurrences,
-            'subtleHighlighting': subtleHighlighting
+            'subtleHighlighting': subtleHighlighting,
+			'invertedHighlighting': invertedHighlighting
           });
         }
       });
